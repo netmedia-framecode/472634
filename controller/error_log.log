@@ -1,0 +1,123 @@
+[2024-10-19 04:38:16] Error [2]: Undefined variable $data in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-kafe.php on line 38
+[2024-10-19 04:38:16] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-kafe.php on line 38
+[2024-10-19 04:38:16] Error [2]: Undefined variable $data in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-kafe.php on line 39
+[2024-10-19 04:38:16] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-kafe.php on line 39
+[2024-10-19 04:38:49] Error [2]: Undefined variable $data in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-kafe.php on line 38
+[2024-10-19 04:38:49] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-kafe.php on line 38
+[2024-10-19 04:38:49] Error [2]: Undefined variable $data in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-kafe.php on line 39
+[2024-10-19 04:38:49] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-kafe.php on line 39
+[2024-10-19 05:22:22] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 24
+[2024-10-19 05:22:31] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 24
+[2024-10-19 05:22:40] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 24
+[2024-10-19 05:23:02] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 24
+[2024-10-19 05:23:24] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 24
+[2024-10-19 05:44:47] Error [2]: Undefined array key "nama_tempat" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 41
+[2024-10-19 05:44:47] Error [2]: Undefined variable $view_menu in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-19 05:44:47] Error [2]: foreach() argument must be of type array|object, null given in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-19 14:08:43] Error [2]: Undefined array key "nama_tempat" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 41
+[2024-10-19 14:08:43] Error [2]: Undefined variable $view_menu in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-19 14:08:43] Error [2]: foreach() argument must be of type array|object, null given in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-20 02:15:39] Error [2]: Undefined array key "nama_tempat" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 41
+[2024-10-20 02:15:39] Error [2]: Undefined variable $view_menu in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-20 02:15:39] Error [2]: foreach() argument must be of type array|object, null given in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-20 12:00:35] Error [2]: Undefined array key "nama_tempat" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 41
+[2024-10-20 12:00:35] Error [2]: Undefined variable $view_menu in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-20 12:00:35] Error [2]: foreach() argument must be of type array|object, null given in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-20 12:44:32] Error [2]: Undefined array key "nama_tempat" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 41
+[2024-10-20 12:44:32] Error [2]: Undefined variable $view_menu in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-20 12:44:32] Error [2]: foreach() argument must be of type array|object, null given in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-21 04:02:28] Error [2]: Undefined array key "nama_tempat" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 41
+[2024-10-21 04:02:28] Error [2]: Undefined variable $view_menu in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-21 04:02:28] Error [2]: foreach() argument must be of type array|object, null given in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-22 03:11:08] Error [2]: Undefined array key "nama_tempat" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 41
+[2024-10-22 03:11:08] Error [2]: Undefined variable $view_menu in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-22 03:11:08] Error [2]: foreach() argument must be of type array|object, null given in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-22 13:47:23] Error [2]: Undefined array key "nama_tempat" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 41
+[2024-10-22 13:47:23] Error [2]: Undefined variable $view_menu in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-22 13:47:23] Error [2]: foreach() argument must be of type array|object, null given in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-23 04:26:27] Error [2]: Undefined array key "nama_tempat" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 41
+[2024-10-23 04:26:27] Error [2]: Undefined variable $view_menu in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-23 04:26:27] Error [2]: foreach() argument must be of type array|object, null given in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 66
+[2024-10-23 05:51:32] Error [2]: Undefined array key "nama_tempat" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 41
+[2024-10-23 05:51:34] Error [2]: Undefined array key "nama_tempat" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 41
+[2024-10-23 06:04:28] Error [2]: Undefined variable $data in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 42
+[2024-10-23 06:04:28] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 42
+[2024-10-23 06:04:38] Error [2]: Undefined variable $data in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 42
+[2024-10-23 06:04:38] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 42
+[2024-10-23 06:04:42] Error [2]: Undefined variable $data in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 42
+[2024-10-23 06:04:42] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-menu.php on line 42
+[2024-10-23 06:31:00] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\list-menu.php on line 24
+[2024-10-23 06:51:07] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:51:07] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:51:07] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:51:07] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:51:07] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:51:07] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:51:07] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:51:07] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:51:07] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:51:07] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:51:07] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:51:07] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:51:07] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:51:07] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:51:07] Error [2]: Undefined array key "nama_menu" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 83
+[2024-10-23 06:51:07] Error [2]: Undefined array key "harga" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 83
+[2024-10-23 06:51:07] Error [8192]: number_format(): Passing null to parameter #1 ($num) of type float is deprecated in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 83
+[2024-10-23 06:51:07] Error [2]: Undefined array key "id_menu" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 83
+[2024-10-23 06:51:07] Error [2]: Undefined array key "nama_menu" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 83
+[2024-10-23 06:51:07] Error [2]: Undefined array key "harga" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 83
+[2024-10-23 06:51:07] Error [8192]: number_format(): Passing null to parameter #1 ($num) of type float is deprecated in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 83
+[2024-10-23 06:51:07] Error [2]: Undefined array key "id_menu" in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 83
+[2024-10-23 06:52:04] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:04] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:04] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:04] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:04] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:04] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:04] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:04] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:04] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:04] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:04] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:04] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:04] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:04] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:06] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:06] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:06] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:06] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:06] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:06] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:06] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:06] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:06] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:06] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:06] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:06] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:06] Error [2]: Undefined variable $data_select_status in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:52:06] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 54
+[2024-10-23 06:54:03] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 26
+[2024-10-23 06:54:03] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 40
+[2024-10-23 06:54:03] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 41
+[2024-10-23 06:54:03] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 42
+[2024-10-23 06:54:03] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 45
+[2024-10-23 06:54:03] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 52
+[2024-10-23 06:54:03] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 62
+[2024-10-23 06:54:03] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 66
+[2024-10-23 06:54:51] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 26
+[2024-10-23 06:54:51] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 40
+[2024-10-23 06:54:51] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 41
+[2024-10-23 06:54:51] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 42
+[2024-10-23 06:54:51] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 45
+[2024-10-23 06:54:51] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 52
+[2024-10-23 06:54:51] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 62
+[2024-10-23 06:54:51] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 66
+[2024-10-23 06:54:55] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 26
+[2024-10-23 06:54:55] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 40
+[2024-10-23 06:54:55] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 41
+[2024-10-23 06:54:55] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 42
+[2024-10-23 06:54:55] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 45
+[2024-10-23 06:54:55] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 52
+[2024-10-23 06:54:55] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 62
+[2024-10-23 06:54:55] Error [2]: Trying to access array offset on value of type null in D:\laragon\www\apps\tugas\portal_wisata_kafe\views\data-master\edit-jam-operasional.php on line 66
