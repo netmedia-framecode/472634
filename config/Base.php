@@ -16,10 +16,22 @@ if (strpos($hostname, 'apps.test') !== false && $port == 8080) {
 }
 $name_website = "Portal Wisata Kafe";
 
-$select_auth = "SELECT * FROM auth";
-$views_auth = mysqli_query($conn, $select_auth);
-$data_auth = mysqli_fetch_assoc($views_auth);
+// $select_auth = "SELECT * FROM auth";
+// $views_auth = mysqli_query($conn, $select_auth);
+// $data_auth = mysqli_fetch_assoc($views_auth);
+$data_auth = [
+  'model' => 2,
+  'bg'=> '#4e73de',
+  'image' => 'auth.png'
+];
 
-$select_utilities = "SELECT * FROM utilities";
-$views_utilities = mysqli_query($conn, $select_utilities);
-$data_utilities = mysqli_fetch_assoc($views_utilities);
+// $select_utilities = "SELECT * FROM utilities";
+// $views_utilities = mysqli_query($conn, $select_utilities);
+// $data_utilities = mysqli_fetch_assoc($views_utilities);
+$data_utilities = [
+  'logo' => 'logo.png',
+  'name_web' => 'Portal Wisata Kafe',
+  'keyword'=> '',
+  'description'=> '',
+  'author'=> 'Alfinardus Dedi Tasman'
+];
