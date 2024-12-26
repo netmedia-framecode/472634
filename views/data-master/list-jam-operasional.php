@@ -4,10 +4,11 @@ if(!isset($_GET["p"])){
   exit();
 }else{
   $id = valid($conn, $_GET["p"]); 
-  $pull_data = "SELECT * FROM jam_operasional JOIN tempat_kafe ON jam_operasional.id_tempat = tempat_kafe.id_tempat WHERE jam_operasional.id_tempat = '$id'";
+  $pull_data = "SELECT * FROM waktu_operasional JOIN tempat_kafe ON waktu_operasional.id_tempat = tempat_kafe.id_tempat WHERE waktu_operasional.id_tempat = '$id'";
   $store_data = mysqli_query($conn, $pull_data);
-  $data_view = mysqli_fetch_assoc($store_data);
-$_SESSION["project_portal_wisata_kafe"]["name_page"] = "List Jam Operasional";
+  if(mysqli_num_rows($store_data)>0){
+    $data_view = mysqli_fetch_assoc($store_data);
+    $_SESSION["project_portal_wisata_kafe"]["name_page"] = "List Jam Operasional";
 require_once("../../templates/views_top.php"); ?>
 
 <div class="nxl-content">
@@ -75,12 +76,12 @@ require_once("../../templates/views_top.php"); ?>
                     <td><?= $data['jam_buka']."-".$data['jam_tutup'] ?></td>
                     <td>
                       <div class="hstack gap-2 justify-content-center">
-                        <a href="edit-jam-operasional?p=<?= $data['id_jam']?>&ps=<?= $data['id_tempat']?>"
+                        <a href="edit-jam-operasional?p=<?= $data['id_waktu_operasional']?>&ps=<?= $data['id_tempat']?>"
                           class="btn btn-warning btn-sm">
                           <i class="bi bi-pencil-square"></i>
                         </a>
                         <form action="" method="post">
-                          <input type="hidden" name="id_jam" value="<?= $data['id_jam'] ?>">
+                          <input type="hidden" name="id_waktu_operasional" value="<?= $data['id_waktu_operasional'] ?>">
                           <input type="hidden" name="id_tempat" value="<?= $data['id_tempat'] ?>">
                           <input type="hidden" name="nama_tempat" value="<?= $data['nama_tempat'] ?>">
                           <button type="submit" name="delete_menu" class="btn btn-danger btn-sm">
@@ -103,5 +104,8 @@ require_once("../../templates/views_top.php"); ?>
 
 </div>
 
-<?php }
+<?php }else{
+  header("Location: jam-operasional");
+  exit();
+}}
 require_once("../../templates/views_bottom.php") ?>

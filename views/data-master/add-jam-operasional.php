@@ -7,12 +7,12 @@ if(!isset($_GET["p"])){
   $pull_data = "SELECT * FROM tempat_kafe WHERE id_tempat = '$id'";
   $store_data = mysqli_query($conn, $pull_data);
   $data_view = mysqli_fetch_assoc($store_data);
-  $jam_operasional = "SELECT * FROM jam_operasional JOIN tempat_kafe ON jam_operasional.id_tempat = tempat_kafe.id_tempat WHERE jam_operasional.id_tempat = '$id'";
-  $view_jam_operasional = mysqli_query($conn, $jam_operasional);
+  $waktu_operasional = "SELECT * FROM waktu_operasional JOIN tempat_kafe ON waktu_operasional.id_tempat = tempat_kafe.id_tempat WHERE waktu_operasional.id_tempat = '$id'";
+  $view_jam_operasional = mysqli_query($conn, $waktu_operasional);
 $_SESSION["project_portal_wisata_kafe"]["name_page"] = "Tambah Jam Operasional";
 require_once("../../templates/views_top.php"); ?>
 
-<div class="nxl-content">
+<div class="nxl-content" style="height: 110vh;">
 
   <!-- [ page-header ] start -->
   <div class="page-header">

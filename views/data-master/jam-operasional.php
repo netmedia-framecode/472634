@@ -2,7 +2,7 @@
 $_SESSION["project_portal_wisata_kafe"]["name_page"] = "Jam Operasional";
 require_once("../../templates/views_top.php"); ?>
 
-<div class="nxl-content">
+<div class="nxl-content" style="height: 110vh;">
 
   <!-- [ page-header ] start -->
   <div class="page-header">
@@ -11,7 +11,7 @@ require_once("../../templates/views_top.php"); ?>
         <h5 class="m-b-10"><?= $_SESSION["project_portal_wisata_kafe"]["name_page"] ?></h5>
       </div>
       <ul class="breadcrumb">
-        <li class="breadcrumb-item">Jam Operasional</li>
+        <li class="breadcrumb-item">Data Master</li>
         <li class="breadcrumb-item"><?= $_SESSION["project_portal_wisata_kafe"]["name_page"] ?></li>
       </ul>
     </div>

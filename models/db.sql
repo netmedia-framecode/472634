@@ -114,12 +114,12 @@ CREATE TABLE menu(
   FOREIGN KEY (id_tempat) REFERENCES tempat_kafe(id_tempat) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
--- CREATE TABLE galeri(
---   id_galeri INT AUTO_INCREMENT PRIMARY KEY,
---   id_tempat INT,
---   nama_file VARCHAR(225),
---   FOREIGN KEY (id_tempat) REFERENCES tempat_kafe(id_tempat) ON UPDATE CASCADE ON DELETE CASCADE
--- );
+CREATE TABLE galeri(
+  id_galeri INT AUTO_INCREMENT PRIMARY KEY,
+  id_tempat INT,
+  nama_file VARCHAR(225),
+  FOREIGN KEY (id_tempat) REFERENCES tempat_kafe(id_tempat) ON UPDATE CASCADE ON DELETE CASCADE
+);
 
 CREATE TABLE admin(
   id_admin INT AUTO_INCREMENT PRIMARY KEY,

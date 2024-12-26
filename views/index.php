@@ -23,7 +23,7 @@ require_once("../templates/views_top.php"); ?>
     <div class="row">
       <!-- [Invoices Awaiting Payment] start -->
       <div class="col-xxl-3 col-md-6">
-        <a href="data-master/kafe">
+        <a href="data-master/tempat-kafe">
           <div class="card stretch stretch-full">
             <div class="card-body">
               <div class="d-flex align-items-start justify-content-between mb-4">

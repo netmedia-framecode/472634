@@ -5,10 +5,10 @@ if(!isset($_GET["p"])){
 }else{
   $id = valid($conn, $_GET["p"]); 
   $ids = valid($conn, $_GET["ps"]);
-  $pull_data = "SELECT * FROM jam_operasional JOIN tempat_kafe ON jam_operasional.id_tempat = tempat_kafe.id_tempat WHERE jam_operasional.id_jam = '$id'";
+  $pull_data = "SELECT * FROM waktu_operasional JOIN tempat_kafe ON waktu_operasional.id_tempat = tempat_kafe.id_tempat WHERE waktu_operasional.id_waktu_operasional = '$id'";
   $store_data = mysqli_query($conn, $pull_data);
   $data_view = mysqli_fetch_assoc($store_data);
-  $pull_data_more = "SELECT * FROM jam_operasional JOIN tempat_kafe ON jam_operasional.id_tempat = tempat_kafe.id_tempat WHERE jam_operasional.id_tempat = '$ids'";
+  $pull_data_more = "SELECT * FROM waktu_operasional JOIN tempat_kafe ON waktu_operasional.id_tempat = tempat_kafe.id_tempat WHERE waktu_operasional.id_tempat = '$ids'";
   $view_pull_data_more = mysqli_query($conn, $pull_data_more);
 $_SESSION["project_portal_wisata_kafe"]["name_page"] = "Ubah Jam Operasional";
 require_once("../../templates/views_top.php"); ?>
@@ -37,7 +37,7 @@ require_once("../../templates/views_top.php"); ?>
         <div class="card stretch stretch-full">
           <div class="card-body">
             <form action="" method="post">
-              <input type="hidden" name="id_jam" value="<?= $data_view['id_jam']?>">
+              <input type="hidden" name="id_waktu_operasional" value="<?= $data_view['id_waktu_operasional']?>">
               <input type="hidden" name="id_tempat" value="<?= $data_view['id_tempat']?>">
               <input type="hidden" name="nama_tempat" value="<?= $data_view['nama_tempat'] ?>">
               <div class="mb-3">
@@ -80,7 +80,7 @@ require_once("../../templates/views_top.php"); ?>
             <h6>List Menu :</h6>
             <ol>
               <?php foreach($view_pull_data_more as $data){
-                echo "<li class='d-flex'><p class='me-2'>".$data['hari']." - ".$data['jam_buka']."-".$data['jam_tutup']."</p><a href='edit-jam-operasional?p=".$data['id_jam']."&ps=".$data['id_tempat']."'><i class='bi bi-pencil-square'></i></a></li>";
+                echo "<li class='d-flex'><p class='me-2'>".$data['hari']." - ".$data['jam_buka']."-".$data['jam_tutup']."</p><a href='edit-jam-operasional?p=".$data['id_waktu_operasional']."&ps=".$data['id_tempat']."'><i class='bi bi-pencil-square'></i></a></li>";
               }?>
             </ol>
           </div>

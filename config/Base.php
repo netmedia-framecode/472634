@@ -3,10 +3,13 @@
 }
 error_reporting(~E_NOTICE & ~E_DEPRECATED);
 require_once("Database.php");
-require_once("Mail.php");
-require_once(__DIR__ . "/../models/sql.php");
 require_once(__DIR__ . "/../assets/vendor/autoload.php");
 require_once(__DIR__ . "/../controller/Functions.php");
+require_once(__DIR__ . "/../models/sql.php");
+
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 $baseURL = "http://$_SERVER[HTTP_HOST]/apps/tugas/portal_wisata_kafe/";
 $hostname = $_SERVER['HTTP_HOST'];
@@ -16,18 +19,12 @@ if (strpos($hostname, 'apps.test') !== false && $port == 8080) {
 }
 $name_website = "Portal Wisata Kafe";
 
-// $select_auth = "SELECT * FROM auth";
-// $views_auth = mysqli_query($conn, $select_auth);
-// $data_auth = mysqli_fetch_assoc($views_auth);
 $data_auth = [
   'model' => 2,
   'bg'=> '#4e73de',
   'image' => 'auth.png'
 ];
 
-// $select_utilities = "SELECT * FROM utilities";
-// $views_utilities = mysqli_query($conn, $select_utilities);
-// $data_utilities = mysqli_fetch_assoc($views_utilities);
 $data_utilities = [
   'logo' => 'logo.png',
   'name_web' => 'Portal Wisata Kafe',

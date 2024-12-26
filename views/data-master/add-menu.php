@@ -12,7 +12,7 @@ if(!isset($_GET["p"])){
 $_SESSION["project_portal_wisata_kafe"]["name_page"] = "Tambah Menu";
 require_once("../../templates/views_top.php"); ?>
 
-<div class="nxl-content">
+<div class="nxl-content" style="height: 110vh;">
 
   <!-- [ page-header ] start -->
   <div class="page-header">

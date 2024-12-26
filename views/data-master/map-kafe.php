@@ -57,7 +57,7 @@ require_once("../../templates/views_top.php"); ?>
             <iframe src="<?= $map_url ?>" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"></iframe>
             <div class="mb-3 hstack gap-2 justify-content-left">
-              <a href="kafe" class="btn btn-success mt-4">Kembali</a>
+              <a href="tempat-kafe" class="btn btn-success mt-4">Kembali</a>
             </div>
           </div>
         </div>

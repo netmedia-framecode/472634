@@ -1,6 +1,24 @@
 <?php
 
-if (!isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
+if (isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
+  function alert($message, $message_type)
+  {
+    global $conn;
+    $id_user = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["id"]);
+    $name = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["name"]);
+    $role = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["role"]);
+    $no_telpon = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["no_telpon"]);
+
+    $_SESSION["project_portal_wisata_kafe"]["users"] = [
+      "id" => $id_user,
+      "name" => $name,
+      "role" => $role,
+      "no_telpon" => $no_telpon,
+      "message_$message_type" => $message,
+      "time_message" => time()
+    ];
+  }
+} else if (!isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
   function alert($message, $message_type)
   {
     $_SESSION["project_portal_wisata_kafe"] = [
@@ -9,29 +27,5 @@ if (!isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
     ];
 
     return true;
-  }
-}
-
-if (isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
-  function alert($message, $message_type)
-  {
-    global $conn;
-    $id_user = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["id"]);
-    $id_role = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["id_role"]);
-    $role = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["role"]);
-    $email = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["email"]);
-    $name = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["name"]);
-    $image = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["image"]);
-
-    $_SESSION["project_portal_wisata_kafe"]["users"] = [
-      "id" => $id_user,
-      "id_role" => $id_role,
-      "role" => $role,
-      "email" => $email,
-      "name" => $name,
-      "image" => $image,
-      "message_$message_type" => $message,
-      "time_message" => time()
-    ];
   }
 }

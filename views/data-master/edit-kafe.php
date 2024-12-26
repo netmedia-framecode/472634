@@ -76,7 +76,7 @@ require_once("../../templates/views_top.php"); ?>
                   placeholder="Kontak">
               </div>
               <div class="mb-3 hstack gap-2 justify-content-left">
-                <a href="kafe" class="btn btn-success">Kembali</a>
+                <a href="tempat-kafe" class="btn btn-success">Kembali</a>
                 <button type="submit" name="edit_tempat_kafe" class="btn btn-warning">Ubah</button>
               </div>
             </form>

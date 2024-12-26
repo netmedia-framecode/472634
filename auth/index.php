@@ -20,27 +20,18 @@ if($data_auth['model']==1){?>
                 <?= $data_utilities['name_web']?>, mari akses rekomendasi terbaik kami untuk Anda.</p>
               <form action="" method="post" class="w-100 mt-4 pt-2">
                 <div class="mb-4">
-                  <input type="email" name="email" class="form-control" placeholder="Email" value="example@gmail.com"
+                  <input type="text" name="username" class="form-control" placeholder="Username" value="admin"
                     required>
                 </div>
                 <div class="mb-3">
                   <input type="password" name="password" class="form-control" placeholder="Password" value="12345678"
                     required>
                 </div>
-                <div class="d-flex align-items-center justify-content-end">
-                  <div>
-                    <a href="forgot-password" class="fs-11 text-primary">Lupa kata sandi?</a>
-                  </div>
-                </div>
                 <div class="mt-3">
                   <button type="submit" name="login" class="btn btn-lg btn-primary w-100">Login</button>
                 </div>
               </form>
-              <div class="mt-5 text-muted">
-                <span> Belum punya akun?</span>
-                <a href="register" class="fw-bold">Buat Akun</a>
-              </div>
-              <div class="text-muted">
+              <div class="text-muted mt-3">
                 <span> Anda ingin kembali ke tampilan awal?</span>
                 <a href="../" class="fw-bold">Beranda</a>
               </div>
@@ -71,17 +62,12 @@ if($data_auth['model']==1){?>
             <?= $data_utilities['name_web']?>, mari akses rekomendasi terbaik kami untuk Anda.</p>
           <form action="" method="post" class="w-100 mt-4 pt-2">
             <div class="mb-4">
-              <input type="email" name="email" class="form-control" placeholder="Email" value="example@gmail.com"
+              <input type="text" name="username" class="form-control" placeholder="Username" value="admin"
                 required>
             </div>
             <div class="mb-3">
               <input type="password" name="password" class="form-control" placeholder="Password" value="12345678"
                 required>
-            </div>
-            <div class="d-flex align-items-center justify-content-end">
-              <div>
-                <a href="forgot-password" class="fs-11 text-primary">Lupa kata sandi?</a>
-              </div>
             </div>
             <div class="mt-3">
               <button type="submit" name="login" class="btn btn-lg btn-primary w-100">Masuk</button>

@@ -6,11 +6,12 @@ if(!isset($_GET["p"])){
   $id = valid($conn, $_GET["p"]); 
   $pull_data = "SELECT * FROM menu JOIN tempat_kafe ON menu.id_tempat = tempat_kafe.id_tempat WHERE menu.id_tempat = '$id'";
   $store_data = mysqli_query($conn, $pull_data);
-  $data_view = mysqli_fetch_assoc($store_data);
-$_SESSION["project_portal_wisata_kafe"]["name_page"] = "List Menu";
-require_once("../../templates/views_top.php"); ?>
+  if(mysqli_num_rows($store_data) > 0){
+    $data_view = mysqli_fetch_assoc($store_data);
+    $_SESSION["project_portal_wisata_kafe"]["name_page"] = "List Menu";
+    require_once("../../templates/views_top.php"); ?>
 
-<div class="nxl-content">
+<div class="nxl-content" style="height: 110vh;">
 
   <!-- [ page-header ] start -->
   <div class="page-header">
@@ -102,5 +103,8 @@ require_once("../../templates/views_top.php"); ?>
 
 </div>
 
-<?php }
+<?php }else{
+  header('Location: menu');
+  exit();
+}}
 require_once("../../templates/views_bottom.php") ?>
