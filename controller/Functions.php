@@ -291,26 +291,41 @@ if (isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
   function galeri($conn, $data, $action)
   {
     $path = "../../assets/img/galeri/";
+
     if ($action == "insert") {
       $fileName = basename($_FILES["image"]["name"]);
       $fileName = str_replace(" ", "-", $fileName);
-      $fileName_encrypt = crc32($fileName);
+      $fileName_encrypt = crc32($fileName); 
       $ekstensiGambar = explode('.', $fileName);
       $ekstensiGambar = strtolower(end($ekstensiGambar));
       $imageUploadPath = $path . $fileName_encrypt . "." . $ekstensiGambar;
       $fileType = pathinfo($imageUploadPath, PATHINFO_EXTENSION);
       $allowTypes = array('jpg', 'png', 'jpeg');
       if (in_array($fileType, $allowTypes)) {
-        $imageTemp = $_FILES["image"]["tmp_name"];
-        compressImage($imageTemp, $imageUploadPath, 75);
-        $image = $fileName_encrypt . "." . $ekstensiGambar;
+        $fileSize = $_FILES["image"]["size"];
+        if ($fileSize <= 2 * 1024 * 1024) {
+          $imageTemp = $_FILES["image"]["tmp_name"];
+          if (move_uploaded_file($imageTemp, $imageUploadPath)) {
+            $image = $fileName_encrypt . "." . $ekstensiGambar;
+            $sql = "INSERT INTO galeri (id_tempat, nama_file) VALUES ('$data[id_tempat]', '$image')";
+          } else {
+            $message = "Gagal mengunggah file. Silakan coba lagi.";
+            $message_type = "danger";
+            alert($message, $message_type);
+            return false;
+          }
+        } else {
+          $message = "Maaf, ukuran file maksimal adalah 2MB.";
+          $message_type = "danger";
+          alert($message, $message_type);
+          return false;
+        }
       } else {
         $message = "Maaf, hanya file gambar JPG, JPEG, dan PNG yang diizinkan.";
         $message_type = "danger";
         alert($message, $message_type);
         return false;
       }
-      $sql = "INSERT INTO galeri (id_tempat,nama_file) VALUES ('$data[id_tempat]','$image')";
     }
 
     // if ($action == "update") {
