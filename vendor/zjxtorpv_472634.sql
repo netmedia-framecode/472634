@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 10 Jan 2025 pada 10.57
+-- Waktu pembuatan: 15 Jan 2025 pada 20.03
 -- Versi server: 10.6.20-MariaDB-cll-lve
 -- Versi PHP: 8.3.14
 
@@ -38,7 +38,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `password`) VALUES
-(1, 'admin', '$2y$10$//KMATh3ibPoI3nHFp7x/u7vnAbo2WyUgmI4x0CVVrH8ajFhMvbjG');
+(1, 'superadmin', '$2y$10$//KMATh3ibPoI3nHFp7x/u7vnAbo2WyUgmI4x0CVVrH8ajFhMvbjG');
 
 -- --------------------------------------------------------
 
@@ -57,8 +57,6 @@ CREATE TABLE `galeri` (
 --
 
 INSERT INTO `galeri` (`id_galeri`, `id_tempat`, `nama_file`) VALUES
-(6, 4, '3888189282.jpeg'),
-(7, 5, '2192978894.jpeg'),
 (12, 7, '2165742861.jpeg'),
 (13, 8, '1284376405.jpeg'),
 (14, 9, '3124010322.jpeg'),
@@ -66,7 +64,15 @@ INSERT INTO `galeri` (`id_galeri`, `id_tempat`, `nama_file`) VALUES
 (16, 11, '1468275158.jpeg'),
 (17, 12, '122259557.jpeg'),
 (18, 13, '567969467.jpeg'),
-(19, 14, '264376970.jpeg');
+(19, 14, '264376970.jpeg'),
+(20, 15, '1238648479.jpeg'),
+(21, 4, '3965248839.jpeg'),
+(22, 5, '3655641192.jpeg'),
+(23, 16, '525411578.png'),
+(24, 17, '3781003458.png'),
+(25, 18, '2852757600.png'),
+(26, 19, '707455415.png'),
+(27, 20, '3672822146.png');
 
 -- --------------------------------------------------------
 
@@ -112,7 +118,11 @@ INSERT INTO `melakukan` (`id_melakukan`, `id_user`, `id_pesanan`) VALUES
 (41, 3, 45),
 (42, 3, 46),
 (43, 2, 47),
-(44, 3, 48);
+(44, 3, 48),
+(45, 3, 49),
+(46, 3, 50),
+(47, 4, 51),
+(48, 5, 52);
 
 -- --------------------------------------------------------
 
@@ -207,7 +217,7 @@ INSERT INTO `menu` (`id_menu`, `id_tempat`, `nama_menu`, `harga`) VALUES
 (83, 13, 'es gren sabu late', 29000),
 (84, 13, 'italyan soda mango', 30000),
 (85, 13, 'es marie raget', 23000),
-(86, 13, 'iced late', 25000),
+(86, 13, 'iced late', 26000),
 (87, 13, 'iced rugal dolce', 27000),
 (88, 13, 'afocado frapz', 25000),
 (89, 13, 'cokies crumbs', 27000),
@@ -223,7 +233,77 @@ INSERT INTO `menu` (`id_menu`, `id_tempat`, `nama_menu`, `harga`) VALUES
 (99, 14, 'avocado', 21000),
 (100, 14, 'es marie raget', 25000),
 (101, 14, 'cokies crumbs', 30000),
-(102, 14, 'chiken katsudon', 32000);
+(102, 14, 'chiken katsudon', 32000),
+(103, 15, 'kopi arabika', 29000),
+(104, 15, 'italyan soda mango', 28000),
+(105, 15, 'iced late', 29000),
+(106, 15, 'es gren sabu late', 25000),
+(107, 15, 'iced rugal dolce', 27000),
+(108, 15, 'es marie raget', 23000),
+(109, 15, 'cokies crumbs', 27000),
+(110, 15, 'carisbean', 25000),
+(111, 15, 'afocado frapz', 29000),
+(112, 15, 'choco berry', 28000),
+(113, 15, 'chiken katsudon', 32000),
+(114, 19, 'picate', 25000),
+(115, 19, 'pop ice', 27000),
+(116, 19, 'cokies crumbs', 27000),
+(117, 19, 'afocado frapz', 29000),
+(118, 19, 'es marie raget', 28000),
+(119, 19, 'carisbean', 30000),
+(120, 19, 'es gren sabu late', 29000),
+(121, 19, 'spicy sambal', 36000),
+(122, 19, 'kopi arabika', 30000),
+(123, 19, 'kopi susu', 23000),
+(124, 19, 'kopi susu', 25000),
+(125, 18, 'afocado frapz', 28000),
+(126, 18, 'kopi susu', 25000),
+(127, 18, 'kopi arabika', 30000),
+(128, 18, 'es gren sabu late', 29000),
+(129, 18, 'es marie raget', 30000),
+(130, 18, 'cokies crumbs', 29000),
+(131, 18, 'capucino', 25000),
+(132, 18, 'chiken katsudon', 27000),
+(133, 18, 'pisang molen keju', 23000),
+(134, 18, 'spicy sambal', 34000),
+(135, 17, 'Roti kambi', 35000),
+(136, 17, 'chicken', 23000),
+(137, 17, 'potato wiools', 22000),
+(138, 17, 'dimsum', 23000),
+(139, 17, 'frisd banana', 34000),
+(140, 17, 'ubu chips', 20000),
+(141, 17, 'chuross', 20000),
+(142, 17, 'prench fries', 15000),
+(143, 17, 'kopi arabika', 30000),
+(144, 17, 'afocado frapz', 25000),
+(145, 17, 'es gren sabu late', 29000),
+(146, 17, 'es marie raget', 27000),
+(147, 16, 'd', 23000),
+(148, 16, 'dumplini', 24000),
+(149, 16, 'Roti kambi', 30000),
+(150, 16, 'mix platior', 29000),
+(151, 16, 'carisbean', 34000),
+(152, 16, 'kopi arabika', 30000),
+(153, 16, 'kopi susu jahe', 23000),
+(154, 16, 'es gren sabu late', 25000),
+(155, 16, 'es marie raget', 25000),
+(156, 16, 'cokies crumbs', 32000),
+(157, 16, 'choco berry', 32000),
+(158, 8, 'cokies crumbs', 29000),
+(159, 8, 'carisbean', 23000),
+(160, 8, 'choco berry', 27000),
+(161, 8, 'cokles late', 25000),
+(162, 8, 'chiken katsudon', 28000),
+(163, 20, 'cokies crumbs', 27000),
+(164, 20, 'carisbean', 23000),
+(165, 20, 'chiken katsudon', 26000),
+(166, 20, 'choco berry', 25000),
+(167, 20, 'cokles late', 23000),
+(168, 20, 'capucino', 21000),
+(169, 20, 'es gren sabu late', 24000),
+(170, 20, 'avocado', 21000),
+(171, 20, 'afocado frapz', 25000),
+(172, 20, 'spicy sambal', 30000);
 
 -- --------------------------------------------------------
 
@@ -273,7 +353,11 @@ INSERT INTO `pesanan` (`id_pesanan`, `id_menu`, `id_tempat`, `total_harga`, `jum
 (45, 12, 5, 90000, 2, '2025-01-08 09:05:27', 'Diterima'),
 (46, 10, 4, 50000, 3, '2025-01-08 10:39:27', 'Diproses'),
 (47, 12, 5, 90000, 2, '2025-01-08 22:40:37', 'Diproses'),
-(48, 25, 7, 90000, 2, '2025-01-09 07:12:40', 'Diproses');
+(48, 25, 7, 90000, 2, '2025-01-09 07:12:40', 'Diproses'),
+(49, 93, 14, 64000, 2, '2025-01-10 15:16:41', 'Diterima'),
+(50, 42, 8, 0, 1, '2025-01-12 12:56:58', 'Diterima'),
+(51, 56, 10, 168000, 3, '2025-01-14 15:50:12', 'Diterima'),
+(52, 152, 16, 90000, 3, '2025-01-14 16:20:24', 'Diterima');
 
 -- --------------------------------------------------------
 
@@ -283,6 +367,7 @@ INSERT INTO `pesanan` (`id_pesanan`, `id_menu`, `id_tempat`, `total_harga`, `jum
 
 CREATE TABLE `tempat_kafe` (
   `id_tempat` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `nama_tempat` varchar(50) DEFAULT NULL,
   `nama_jalan` varchar(50) DEFAULT NULL,
   `peta_lokasi` text DEFAULT NULL,
@@ -293,17 +378,23 @@ CREATE TABLE `tempat_kafe` (
 -- Dumping data untuk tabel `tempat_kafe`
 --
 
-INSERT INTO `tempat_kafe` (`id_tempat`, `nama_tempat`, `nama_jalan`, `peta_lokasi`, `kontak`) VALUES
-(4, 'Cafe Teduh Kupang', 'Jl. Adisucipto, Penfui', '-10.178908_123.670858', '081339451234'),
-(5, 'Lokita Cafe &amp; Resto', 'Jl. Thamrin No.54', '-10.160345_123.617658', '08115785678'),
-(7, 'my kopi-o', 'jln lantera', '-10.160345_123.617658', '082146249336'),
-(8, 'kopi kembo', 'jl trusan timor raaya', '-10.160345_123.617658', '0812-1910-1940'),
-(9, 'sombra coffe', 'jl lalamentik no 95', '-10.160345_123.617658', '0812-8069-5113'),
-(10, 'royal caffee', 'jl lantera', '-10.160345_123.617658', '082142335402'),
-(11, 'lacaja coffe', 'Jl. Adi Sucipto, Penfui', '-10.160345_123.617658', '0812-2474-2409'),
-(12, 'bakery cafe', 'jl antarnusa', '-10.160345_123.617658', '081237339086'),
-(13, 'capital caffe', 'Jl. Bund. PU No.106', '-10.178908_123.670858', '0812-3991-1919'),
-(14, 'kopi amabie', 'jl adi sucipto', '-10.178908_123.670858', '082335428097');
+INSERT INTO `tempat_kafe` (`id_tempat`, `id_user`, `nama_tempat`, `nama_jalan`, `peta_lokasi`, `kontak`) VALUES
+(4, 6, 'Cafe Teduh Kupang', 'Jl. Adisucipto, Penfui', '-10.178908_123.670858', '081339451234'),
+(5, 6, 'Lokita Cafe &amp; Resto', 'Jl. Thamrin No.54', '-10.160345_123.617658', '08115785678'),
+(7, 6, 'my kopi-o', 'jln lantera', '-10.160345_123.617658', '082146249336'),
+(8, 6, 'kopi kembo', 'jl trusan timor raaya', '-10.160345_123.617658', '0812-1910-1940'),
+(9, 6, 'sombra coffe', 'jl lalamentik no 95', '-10.160345_123.617658', '0812-8069-5113'),
+(10, 6, 'royal caffee', 'jl lantera', '-10.160345_123.617658', '082142335402'),
+(11, 6, 'lacaja coffe', 'Jl. Adi Sucipto, Penfui', '-10.160345_123.617658', '0812-2474-2409'),
+(12, 6, 'bakery cafe', 'jl antarnusa', '-10.160345_123.617658', '081237339086'),
+(13, 6, 'capital caffe', 'Jl. Bund. PU No.106', '-10.178908_123.670858', '0812-3991-1919'),
+(14, 6, 'kopi amabie', 'jl adi sucipto', '-10.178908_123.670858', '082335428097'),
+(15, 6, 'paradox caffee', 'Jl. W.J. Lalamentik No.123, Oebufu', '-10.178908_123.670858', '0812-3919-9995'),
+(16, 6, 'Jaâ€™O Coffee', 'Jl. Frans Seda No.105A, Fatululi,', '-10.178908_123.670858', '083263571208'),
+(17, 6, 'kedai kopi petir', 'jl.Fatululi, Kec. Oebobo,', '-10.178908_123.670858', '0813-3911-8347'),
+(18, 6, 'BILâ€™s Resto', 'jl.Bukit Intan Lestari, Alak, Kec. Alak', '-10.178908_123.670858', '0811-3821-133'),
+(19, 6, 'Kampung Solor caffe', 'Jalan Siliwangi, Kelurahan Kampung Solor, Kecamata', '-10.178908_123.670858', '0811-3821-133'),
+(20, 6, 'Tebing Bar And Cafe', 'jl. Alak, Kupang, Kota Kupang.', '-10.20282_123.53117', '081233331115');
 
 -- --------------------------------------------------------
 
@@ -315,17 +406,23 @@ CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(75) NOT NULL,
-  `no_telpon` char(13) DEFAULT NULL
+  `no_telpon` char(13) DEFAULT NULL,
+  `status` enum('admin','pembeli','','') NOT NULL DEFAULT 'pembeli'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id_user`, `username`, `password`, `no_telpon`) VALUES
-(1, 'arlan', '$2y$10$b7cWFMRhO7QX8WtQF7.1Ee6KM8X/vfbHLLk/TplFcyUqAfOUTslsi', '08113827421'),
-(2, 'artoselji', '$2y$10$lbhqRgbrNpndn0xzPbnrQeHByOfrtXAxBT0zznfDzov4Ihy.wxZxC', '0821345671'),
-(3, 'alfintasman', '$2y$10$YzgvuFQPslPU/zIu64BnP.MQTMLovxPUIqDYVPzfpsfw5CBH0ExFy', '082146208360');
+INSERT INTO `users` (`id_user`, `username`, `password`, `no_telpon`, `status`) VALUES
+(1, 'arlan', '$2y$10$b7cWFMRhO7QX8WtQF7.1Ee6KM8X/vfbHLLk/TplFcyUqAfOUTslsi', '08113827421', 'pembeli'),
+(2, 'artoselji', '$2y$10$lbhqRgbrNpndn0xzPbnrQeHByOfrtXAxBT0zznfDzov4Ihy.wxZxC', '0821345671', 'pembeli'),
+(3, 'alfintasman', '$2y$10$YzgvuFQPslPU/zIu64BnP.MQTMLovxPUIqDYVPzfpsfw5CBH0ExFy', '082146208360', 'pembeli'),
+(4, 'paul', '$2y$10$8e8UHE2DgmyVs5lFBlSLpOoyXIU.dhIZwFcaK20qttXZ4q3FmcPuG', '082145339207', 'pembeli'),
+(5, 'kamilus', '$2y$10$9snZ9OaWZeJ9POykj57/BuaZSXPePsk2tmKY.Y5g8TnNlW0ZOgWci', '083456798023', 'pembeli'),
+(6, 'admin', '$2y$10$a0Z6ovqcSbtJxjF9oAMVtOAzNCtnjPXxRivcVxJt9gzWDCxMvnvS6', '082111111111', 'admin'),
+(7, 'ocdcafe', '$2y$10$Db3XV2akpnLSKZOjm5xJFe1Lk4VpMT3A/ms6FtwUGNQvmkDjev6Y.', '082111111111', 'admin'),
+(8, 'putri', '$2y$10$kkxx2O7H27sxM4ULdUsuH.JAQhEH8pP02hTpNZ2BZMDyO5QbAxnge', '082111111111', 'pembeli');
 
 -- --------------------------------------------------------
 
@@ -406,7 +503,49 @@ INSERT INTO `waktu_operasional` (`id_waktu_operasional`, `id_tempat`, `hari`, `j
 (67, 14, 'Kamis', '10:00:00', '21:00:00'),
 (68, 14, 'Jumat', '09:00:00', '22:00:00'),
 (69, 14, 'Sabtu', '09:00:00', '22:00:00'),
-(70, 14, 'Minggu', '08:30:00', '23:00:00');
+(70, 14, 'Minggu', '08:30:00', '23:00:00'),
+(71, 15, 'Senin', '10:00:00', '23:00:00'),
+(72, 15, 'Selasa', '10:00:00', '23:00:00'),
+(73, 15, 'Rabu', '10:00:00', '23:00:00'),
+(74, 15, 'Kamis', '10:00:00', '23:00:00'),
+(75, 15, 'Jumat', '10:00:00', '00:00:00'),
+(76, 15, 'Sabtu', '10:00:00', '00:00:00'),
+(77, 15, 'Minggu', '10:00:00', '23:00:00'),
+(78, 19, 'Senin', '17:00:00', '19:30:00'),
+(79, 19, 'Selasa', '17:00:00', '19:30:00'),
+(80, 19, 'Rabu', '17:00:00', '19:30:00'),
+(81, 19, 'Kamis', '17:00:00', '19:30:00'),
+(82, 19, 'Jumat', '17:00:00', '19:30:00'),
+(83, 19, 'Sabtu', '17:00:00', '02:00:00'),
+(84, 19, 'Minggu', '17:00:00', '02:00:00'),
+(85, 18, 'Senin', '06:00:00', '23:00:00'),
+(86, 18, 'Selasa', '06:00:00', '23:00:00'),
+(87, 18, 'Rabu', '06:00:00', '23:00:00'),
+(88, 18, 'Kamis', '06:00:00', '23:00:00'),
+(89, 18, 'Jumat', '06:00:00', '02:00:00'),
+(90, 18, 'Sabtu', '06:00:00', '02:00:00'),
+(91, 18, 'Minggu', '06:00:00', '02:00:00'),
+(92, 17, 'Senin', '09:00:00', '23:00:00'),
+(93, 17, 'Selasa', '09:00:00', '23:00:00'),
+(94, 17, 'Rabu', '09:00:00', '23:00:00'),
+(95, 17, 'Kamis', '09:00:00', '23:00:00'),
+(96, 17, 'Jumat', '09:00:00', '23:00:00'),
+(97, 17, 'Sabtu', '09:00:00', '23:00:00'),
+(98, 17, 'Minggu', '09:00:00', '23:00:00'),
+(99, 16, 'Senin', '09:00:00', '23:00:00'),
+(100, 16, 'Selasa', '09:00:00', '23:00:00'),
+(101, 16, 'Rabu', '09:00:00', '23:00:00'),
+(102, 16, 'Kamis', '09:00:00', '23:00:00'),
+(103, 16, 'Jumat', '09:00:00', '23:00:00'),
+(104, 16, 'Sabtu', '09:00:00', '23:00:00'),
+(105, 16, 'Minggu', '09:00:00', '23:00:00'),
+(106, 20, 'Senin', '16:00:00', '22:00:00'),
+(107, 20, 'Selasa', '16:00:00', '22:00:00'),
+(108, 20, 'Rabu', '16:00:00', '22:00:00'),
+(109, 20, 'Kamis', '16:00:00', '22:00:00'),
+(110, 20, 'Jumat', '16:00:00', '22:00:00'),
+(111, 20, 'Sabtu', '16:00:00', '22:00:00'),
+(112, 20, 'Minggu', '16:00:00', '22:00:00');
 
 --
 -- Indexes for dumped tables
@@ -452,7 +591,8 @@ ALTER TABLE `pesanan`
 -- Indeks untuk tabel `tempat_kafe`
 --
 ALTER TABLE `tempat_kafe`
-  ADD PRIMARY KEY (`id_tempat`);
+  ADD PRIMARY KEY (`id_tempat`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indeks untuk tabel `users`
@@ -481,43 +621,43 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT untuk tabel `melakukan`
 --
 ALTER TABLE `melakukan`
-  MODIFY `id_melakukan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_melakukan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT untuk tabel `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
 
 --
 -- AUTO_INCREMENT untuk tabel `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT untuk tabel `tempat_kafe`
 --
 ALTER TABLE `tempat_kafe`
-  MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_tempat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `waktu_operasional`
 --
 ALTER TABLE `waktu_operasional`
-  MODIFY `id_waktu_operasional` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id_waktu_operasional` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -548,6 +688,12 @@ ALTER TABLE `menu`
 ALTER TABLE `pesanan`
   ADD CONSTRAINT `pesanan_ibfk_1` FOREIGN KEY (`id_menu`) REFERENCES `menu` (`id_menu`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pesanan_ibfk_2` FOREIGN KEY (`id_tempat`) REFERENCES `tempat_kafe` (`id_tempat`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `tempat_kafe`
+--
+ALTER TABLE `tempat_kafe`
+  ADD CONSTRAINT `tempat_kafe_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `waktu_operasional`

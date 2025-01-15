@@ -8,6 +8,7 @@ if (isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
     $name = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["name"]);
     $role = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["role"]);
     $no_telpon = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["no_telpon"]);
+    $status = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["status"]);
 
     $_SESSION["project_portal_wisata_kafe"]["users"] = [
       "id" => $id_user,
@@ -15,7 +16,8 @@ if (isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
       "role" => $role,
       "no_telpon" => $no_telpon,
       "message_$message_type" => $message,
-      "time_message" => time()
+      "time_message" => time(),
+      "status"=> $status
     ];
   }
 } else if (!isset($_SESSION["project_portal_wisata_kafe"]["users"])) {

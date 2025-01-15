@@ -2,7 +2,7 @@
 $_SESSION["project_portal_wisata_kafe"]["name_page"] = "Menu";
 require_once("../../templates/views_top.php"); ?>
 
-<div class="nxl-content" style="height: 100vh;">
+<div class="nxl-content" style="height: 110vh;">
 
   <!-- [ page-header ] start -->
   <div class="page-header">
@@ -35,20 +35,22 @@ require_once("../../templates/views_top.php"); ?>
                 </thead>
                 <tbody>
                   <?php foreach ($view_tempat_kafe as $key => $data) { ?>
-                  <tr class="single-item">
-                    <td class="text-center"><?= $key + 1 ?></td>
-                    <td><?= $data['nama_tempat'] ?></td>
-                    <td>
-                      <div class="hstack gap-2 justify-content-center">
-                        <a href="add-menu?p=<?= $data['id_tempat']?>" class="btn btn-primary btn-sm">
-                          <i class="feather-plus me-2"></i> Tambah
-                        </a>
-                        <a href="list-menu?p=<?= $data['id_tempat']?>" class="btn btn-success btn-sm">
-                          <i class="bi bi-eye me-2"></i> Lihat
-                        </a>
-                      </div>
-                    </td>
-                  </tr>
+                    <tr class="single-item">
+                      <td class="text-center"><?= $key + 1 ?></td>
+                      <td><?= $data['nama_tempat'] ?></td>
+                      <td>
+                        <div class="hstack gap-2 justify-content-center">
+                          <?php if ($status == "admin") { ?>
+                            <a href="add-menu?p=<?= $data['id_tempat'] ?>" class="btn btn-primary btn-sm">
+                              <i class="feather-plus me-2"></i> Tambah
+                            </a>
+                          <?php } ?>
+                          <a href="list-menu?p=<?= $data['id_tempat'] ?>" class="btn btn-success btn-sm">
+                            <i class="bi bi-eye me-2"></i> Lihat
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
                   <?php } ?>
                 </tbody>
               </table>

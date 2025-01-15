@@ -36,7 +36,9 @@ require_once("../../templates/views_top.php"); ?>
                     <th class="text-center">Total Harga</th>
                     <th class="text-center">Waktu Pesanan</th>
                     <th class="text-center">Status</th>
-                    <th class="text-center">Aksi</th>
+                    <?php if ($status == "admin") { ?>
+                      <th class="text-center">Aksi</th>
+                    <?php } ?>
                   </tr>
                 </thead>
                 <tbody>
@@ -55,23 +57,25 @@ require_once("../../templates/views_top.php"); ?>
                       <td class="text-center"><?php $waktu_pesanan = date_create($data["waktu_pesanan"]);
                                               echo date_format($waktu_pesanan, "d M Y - H:i"); ?></td>
                       <td class="text-center"><?= $data['status_pesanan'] ?></td>
-                      <td>
-                        <div class="hstack gap-2 justify-content-center">
-                          <?php if ($data["status_pesanan"] == "Diproses") { ?>
-                            <a href="edit-pesanan?p=<?= $data['id_pesanan'] ?>" class="btn btn-warning btn-sm">
-                              <i class="bi bi-pencil-square"></i>
-                            </a>
-                          <?php } else if ($data["status_pesanan"] == "Diterima") { ?>
-                            <a href="#" class="btn btn-success btn-sm">
-                              <i class="bi bi-check2-all"></i>
-                            </a>
-                          <?php } else if ($data["status_pesanan"] == "Ditolak") { ?>
-                            <a href="#" class="btn btn-danger btn-sm">
-                              <i class="bi bi-bag-x"></i>
-                            </a>
-                          <?php } ?>
-                        </div>
-                      </td>
+                      <?php if ($status == "admin") { ?>
+                        <td>
+                          <div class="hstack gap-2 justify-content-center">
+                            <?php if ($data["status_pesanan"] == "Diproses") { ?>
+                              <a href="edit-pesanan?p=<?= $data['id_pesanan'] ?>" class="btn btn-warning btn-sm">
+                                <i class="bi bi-pencil-square"></i>
+                              </a>
+                            <?php } else if ($data["status_pesanan"] == "Diterima") { ?>
+                              <a href="#" class="btn btn-success btn-sm">
+                                <i class="bi bi-check2-all"></i>
+                              </a>
+                            <?php } else if ($data["status_pesanan"] == "Ditolak") { ?>
+                              <a href="#" class="btn btn-danger btn-sm">
+                                <i class="bi bi-bag-x"></i>
+                              </a>
+                            <?php } ?>
+                          </div>
+                        </td>
+                      <?php } ?>
                     </tr>
                   <?php } ?>
                 </tbody>

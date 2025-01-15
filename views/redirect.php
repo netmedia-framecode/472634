@@ -2,7 +2,7 @@
   header("Location: ../auth/");
   exit;
 } else {
-  if ($_SESSION["project_portal_wisata_kafe"]["users"]["role"] == "user") {
+  if ($_SESSION["project_portal_wisata_kafe"]["users"]["status"] == "pembeli") {
     header("Location: ../");
     exit;
   }

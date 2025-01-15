@@ -173,7 +173,8 @@ if (!isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
           return false;
         } else {
           $password = password_hash($data['password'], PASSWORD_DEFAULT);
-          $sql = "INSERT INTO users(username,password,no_telpon) VALUES('$data[username]','$password','$data[no_telpon]')";
+          $username = strtolower(str_replace(' ', '', $data['username']));
+          $sql = "INSERT INTO users(username,password,no_telpon,status) VALUES('$username','$password','$data[no_telpon]','$data[status]')";
         }
       }
     }
@@ -193,7 +194,8 @@ if (!isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
           "id" => $row["id_admin"],
           "name" => $row["username"],
           "role" => "admin",
-          "no_telpon" => 0
+          "no_telpon" => 0,
+          "status" => 'superadmin',
         ];
         return mysqli_affected_rows($conn);
       } else {
@@ -211,7 +213,8 @@ if (!isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
             "id" => $row["id_user"],
             "name" => $row["username"],
             "role" => "user",
-            "no_telpon" => $row["no_telpon"]
+            "no_telpon" => $row["no_telpon"],
+            "status" => $row["status"]
           ];
           return mysqli_affected_rows($conn);
         } else {
@@ -232,11 +235,11 @@ if (!isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
 
 if (isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
 
-  function tempat_kafe($conn, $data, $action)
+  function tempat_kafe($conn, $data, $action, $id_user)
   {
     if ($action == "insert") {
       $peta_lokasi = $data['latitude'] . "_" . $data['longitude'];
-      $sql = "INSERT INTO tempat_kafe (nama_tempat,nama_jalan,peta_lokasi,kontak) VALUES ('$data[nama_tempat]','$data[nama_jalan]','$peta_lokasi','$data[kontak]')";
+      $sql = "INSERT INTO tempat_kafe (id_user,nama_tempat,nama_jalan,peta_lokasi,kontak) VALUES ('$id_user','$data[nama_tempat]','$data[nama_jalan]','$peta_lokasi','$data[kontak]')";
     }
 
     if ($action == "update") {
@@ -295,7 +298,7 @@ if (isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
     if ($action == "insert") {
       $fileName = basename($_FILES["image"]["name"]);
       $fileName = str_replace(" ", "-", $fileName);
-      $fileName_encrypt = crc32($fileName); 
+      $fileName_encrypt = crc32($fileName);
       $ekstensiGambar = explode('.', $fileName);
       $ekstensiGambar = strtolower(end($ekstensiGambar));
       $imageUploadPath = $path . $fileName_encrypt . "." . $ekstensiGambar;

@@ -23,12 +23,14 @@ require_once("../../templates/views_top.php"); ?>
             <span>Back</span>
           </a>
         </div>
-        <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
-          <a href="add-kafe" class="btn btn-primary">
-            <i class="feather-plus me-2"></i>
-            <span>Tambah</span>
-          </a>
-        </div>
+        <?php if ($status == "admin") { ?>
+          <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
+            <a href="add-kafe" class="btn btn-primary">
+              <i class="feather-plus me-2"></i>
+              <span>Tambah</span>
+            </a>
+          </div>
+        <?php } ?>
       </div>
       <div class="d-md-none d-flex align-items-center">
         <a href="javascript:void(0)" class="page-header-right-open-toggle">
@@ -54,38 +56,42 @@ require_once("../../templates/views_top.php"); ?>
                     <th class="text-center">Nama Jalan</th>
                     <th class="text-center">Peta Lokasi</th>
                     <th class="text-center">Kontak</th>
-                    <th class="text-center">Aksi</th>
+                    <?php if ($status == "admin") { ?>
+                      <th class="text-center">Aksi</th>
+                    <?php } ?>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach ($view_tempat_kafe as $key => $data) { ?>
-                  <tr class="single-item">
-                    <td class="text-center"><?= $key + 1 ?></td>
-                    <td><?= $data['nama_tempat'] ?></td>
-                    <td><?= $data['nama_jalan'] ?></td>
-                    <td>
-                      <div class="hstack gap-2 justify-content-center">
-                        <a href="map-kafe?p=<?= $data['id_tempat']?>" class="btn btn-success btn-sm">
-                          <i class="bi bi-geo-alt me-2"></i> Lokasi
-                        </a>
-                      </div>
-                    </td>
-                    <td><?= $data['kontak'] ?></td>
-                    <td>
-                      <div class="hstack gap-2 justify-content-center">
-                        <a href="edit-kafe?p=<?= $data['id_tempat']?>" class="btn btn-warning btn-sm">
-                          <i class="bi bi-pencil-square"></i>
-                        </a>
-                        <form action="" method="post">
-                          <input type="hidden" name="id_tempat" value="<?= $data['id_tempat'] ?>">
-                          <input type="hidden" name="nama_tempat" value="<?= $data['nama_tempat'] ?>">
-                          <button type="submit" name="delete_tempat_kafe" class="btn btn-danger btn-sm">
-                            <i class="bi bi-trash"></i>
-                          </button>
-                        </form>
-                      </div>
-                    </td>
-                  </tr>
+                    <tr class="single-item">
+                      <td class="text-center"><?= $key + 1 ?></td>
+                      <td><?= $data['nama_tempat'] ?></td>
+                      <td><?= $data['nama_jalan'] ?></td>
+                      <td>
+                        <div class="hstack gap-2 justify-content-center">
+                          <a href="map-kafe?p=<?= $data['id_tempat'] ?>" class="btn btn-success btn-sm">
+                            <i class="bi bi-geo-alt me-2"></i> Lokasi
+                          </a>
+                        </div>
+                      </td>
+                      <td><?= $data['kontak'] ?></td>
+                      <?php if ($status == "admin") { ?>
+                        <td>
+                          <div class="hstack gap-2 justify-content-center">
+                            <a href="edit-kafe?p=<?= $data['id_tempat'] ?>" class="btn btn-warning btn-sm">
+                              <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <form action="" method="post">
+                              <input type="hidden" name="id_tempat" value="<?= $data['id_tempat'] ?>">
+                              <input type="hidden" name="nama_tempat" value="<?= $data['nama_tempat'] ?>">
+                              <button type="submit" name="delete_tempat_kafe" class="btn btn-danger btn-sm">
+                                <i class="bi bi-trash"></i>
+                              </button>
+                            </form>
+                          </div>
+                        </td>
+                      <?php } ?>
+                    </tr>
                   <?php } ?>
                 </tbody>
               </table>

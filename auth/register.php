@@ -109,6 +109,13 @@ if ($data_auth['model'] == 1) { ?>
               <div class="mb-4">
                 <input type="password" name="re_password" class="form-control" placeholder="Password again" required>
               </div>
+              <div class="mb-4">
+                <select name="status" class="form-control" aria-label="Default select example">
+                  <option selected>Pilih Status</option>
+                  <option value="admin">Admin Kafe</option>
+                  <option value="pembeli">Pembeli</option>
+                </select>
+              </div>
               <div class="mt-3">
                 <button type="submit" name="register" class="btn btn-lg btn-primary w-100">Buat Akun</button>
               </div>
