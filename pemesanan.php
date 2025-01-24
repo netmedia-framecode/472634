@@ -27,23 +27,114 @@ require_once("redirect.php"); ?>
                   <tr>
                     <th>Kafe</th>
                     <th>Status</th>
+                    <th>Waktu Tunggu</th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($view_kafe_pesanan as $data) { ?>
+                  <?php date_default_timezone_set("Asia/Makassar");
+                  foreach ($view_kafe_pesanan as $data) :
+                    $waktu_pesanan = strtotime($data["waktu_pesanan"]);
+                    $waktu_tunggu = $waktu_pesanan + (10 * 60);
+                  ?>
                     <tr>
-                      <td><a href="tempat-kafe?p=<?= $data["id_tempat"] ?>"><strong><?= $data['nama_tempat'] ?></strong></a></td>
-                      <td><?= $data['status_pesanan'] ?></td>
+                      <td>
+                        <a href="tempat-kafe?p=<?= $data["id_tempat"] ?>">
+                          <strong><?= htmlspecialchars($data['nama_tempat'], ENT_QUOTES, 'UTF-8') ?></strong>
+                        </a>
+                      </td>
+                      <td class="status-pesanan" data-id="<?= $data['id_pesanan'] ?>">
+                        <?= htmlspecialchars($data['status_pesanan'], ENT_QUOTES, 'UTF-8') ?>
+                      </td>
+                      <td class="text-center">
+                        <span
+                          class="waktu-tunggu"
+                          data-waktu-tunggu="<?= $waktu_tunggu ?>"
+                          data-id="<?= $data['id_pesanan'] ?>">
+                          Menghitung...
+                        </span>
+                      </td>
                       <td>
                         <form action="" method="post">
-                          <input type="hidden" name="id_tempat" value="<?= $data['id_tempat'] ?>">
-                          <input type="hidden" name="waktu_pesanan" value="<?= $data['waktu_pesanan'] ?>">
-                          <button type="submit" name="view_menu_kafe_order" class="btn btn-success btn-sm">Menu <i class="bi bi-arrow-right"></i></button>
+                          <input type="hidden" name="id_tempat" value="<?= htmlspecialchars($data['id_tempat'], ENT_QUOTES, 'UTF-8') ?>">
+                          <input type="hidden" name="waktu_pesanan" value="<?= htmlspecialchars($data['waktu_pesanan'], ENT_QUOTES, 'UTF-8') ?>">
+                          <button type="submit" name="view_menu_kafe_order" class="btn btn-success btn-sm">
+                            Menu <i class="bi bi-arrow-right"></i>
+                          </button>
                         </form>
                       </td>
                     </tr>
-                  <?php } ?>
+                  <?php endforeach; ?>
+                  <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                      function updateWaktuTunggu() {
+                        const elements = document.querySelectorAll('.waktu-tunggu');
+                        const now = Math.floor(Date.now() / 1000);
+                        elements.forEach(element => {
+                          const waktuTunggu = parseInt(element.getAttribute('data-waktu-tunggu'), 10);
+                          const remainingTime = waktuTunggu - now;
+                          const idTempat = element.getAttribute('data-id');
+                          const statusElement = document.querySelector(`.status-pesanan[data-id="${idTempat}"]`);
+                          if (remainingTime <= 0) {
+                            element.textContent = "Waktu Habis";
+                            updateStatusPesanan(idTempat, statusElement);
+                          } else {
+                            const minutes = Math.floor(remainingTime / 60);
+                            const seconds = remainingTime % 60;
+                            element.textContent = `${minutes}m ${seconds}s`;
+                          }
+                        });
+                      }
+
+                      function updateStatusPesanan(idTempat, statusElement) {
+                        fetch('controller/update_status_pesanan.php', {
+                            method: 'POST',
+                            headers: {
+                              'Content-Type': 'application/x-www-form-urlencoded'
+                            },
+                            body: `id_tempat=${idTempat}`
+                          })
+                          .then(response => response.json())
+                          .then(data => {
+                            if (data.success) {
+                              fetchStatusPesanan(idTempat, statusElement);
+                            } else {
+                              console.error('Gagal memperbarui status:', data.message);
+                            }
+                          })
+                          .catch(error => console.error('Kesalahan koneksi:', error));
+                      }
+
+                      setInterval(updateWaktuTunggu, 1000);
+                      updateWaktuTunggu();
+                    });
+                  </script>
+                  <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                      function fetchUpdatedStatus() {
+                        // Kirim request ke server untuk mendapatkan data status terbaru
+                        fetch('controller/get_status_pesanan.php') // Endpoint untuk semua status
+                          .then(response => response.json())
+                          .then(data => {
+                            if (data.success) {
+                              data.pesanan.forEach(pesanan => {
+                                const statusElement = document.querySelector(`.status-pesanan[data-id="${pesanan.id_pesanan}"]`);
+                                if (statusElement && statusElement.textContent !== pesanan.status_pesanan) {
+                                  statusElement.textContent = pesanan.status_pesanan; // Update status
+                                }
+                              });
+                            } else {
+                              console.error('Gagal mengambil status:', data.message);
+                            }
+                          })
+                          .catch(error => console.error('Kesalahan koneksi:', error));
+                      }
+
+                      // Panggil fungsi secara berkala setiap 5 detik
+                      setInterval(fetchUpdatedStatus, 1000);
+                    });
+                  </script>
+
                 </tbody>
               </table>
             </div>
@@ -91,17 +182,21 @@ require_once("redirect.php"); ?>
                         <td><?= $data['nama_menu'] ?></td>
                         <td>Rp.<?= number_format($data['harga']) ?></td>
                         <td><?= $data['jumlah_menu'] ?></td>
-                        <td>Rp.<?= number_format($data['total_harga']) ?></td>
+                        <td>Rp.<?= number_format($data['harga'] * $data['jumlah_menu']) ?></td>
                       </tr>
-                    <?php $total += $data['total_harga'];
+                    <?php $total += $data['harga'] * $data['jumlah_menu'];
                     } ?>
                     <tr>
                       <td class="text-right font-weight-bold" colspan="6">Sub Total</td>
                       <td>Rp.<?= number_format($total) ?></td>
                     </tr>
                     <tr>
+                      <td class="text-right font-weight-bold" colspan="6">Pajak</td>
+                      <td>Rp.<?= number_format($total * ($data['pajak'] / 100)) ?></td>
+                    </tr>
+                    <tr>
                       <td class="text-right font-weight-bold" colspan="6">Grand Total</td>
-                      <td>Rp.<?= number_format($total) ?></td>
+                      <td>Rp.<?= number_format($total + ($total * ($data['pajak'] / 100))) ?></td>
                     </tr>
                   </tbody>
                 </table>
@@ -116,100 +211,3 @@ require_once("redirect.php"); ?>
 </main>
 
 <?php require_once("templates/bottom.php"); ?>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const cartTable = document.querySelector("table");
-    const subTotalElement = document.querySelector(".subTotalAmount");
-    const grandTotalElement = document.querySelector(".grandTotal");
-
-    // Function to update totals
-    function updateTotals() {
-      let total = 0;
-      document.querySelectorAll(".subtotal").forEach((subtotal) => {
-        const value = parseFloat(subtotal.textContent.replace(/Rp\.|,/g, "")) || 0;
-        total += value;
-      });
-      subTotalElement.textContent = `Rp.${total.toLocaleString()}`;
-      grandTotalElement.textContent = `Rp.${total.toLocaleString()}`;
-    }
-
-    // Handle quantity changes
-    cartTable.addEventListener("click", function(e) {
-      if (e.target.closest(".btn-minus") || e.target.closest(".btn-plus")) {
-        e.preventDefault();
-
-        const button = e.target.closest("a");
-        const inputField = button.parentElement.querySelector(".jumlah");
-        let currentValue = parseInt(inputField.value);
-        const isPlus = button.classList.contains("btn-plus");
-
-        if (isPlus) {
-          currentValue += 1;
-        } else {
-          currentValue = Math.max(1, currentValue - 1); // Minimum quantity is 1
-        }
-
-        inputField.value = currentValue;
-
-        // Update the subtotal for this row
-        const row = button.closest("tr");
-        const price = parseFloat(row.querySelector("[data-column='Price']").textContent.replace(/Rp\.|,/g, ""));
-        const subtotalField = row.querySelector(".subtotal");
-        const subtotal = price * currentValue;
-        subtotalField.textContent = `Rp.${subtotal.toLocaleString()}`;
-
-        updateTotals();
-
-        // Optional: Send AJAX request to update the server
-        updateCartQuantity(button.dataset.id, currentValue);
-      }
-    });
-
-    cartTable.addEventListener("change", function(e) {
-      if (e.target.classList.contains("jumlah")) {
-        const inputField = e.target;
-        const currentValue = parseInt(inputField.value) || 1; // Default to 1 if invalid
-        inputField.value = currentValue;
-
-        // Update the subtotal for this row
-        const row = inputField.closest("tr");
-        const price = parseFloat(row.querySelector("[data-column='Price']").textContent.replace(/Rp\.|,/g, ""));
-        const subtotalField = row.querySelector(".subtotal");
-        const subtotal = price * currentValue;
-        subtotalField.textContent = `Rp.${subtotal.toLocaleString()}`;
-
-        updateTotals();
-
-        // Optional: Send AJAX request to update the server
-        updateCartQuantity(inputField.dataset.id, currentValue);
-      }
-    });
-
-    // Function to send updated cart data to the server
-    function updateCartQuantity(id, quantity) {
-      fetch("update_keranjang.php", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            id_pesanan: id,
-            jumlah_menu: quantity
-          }),
-        })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            console.log("Cart updated successfully!");
-          } else {
-            console.error("Failed to update cart.");
-          }
-        })
-        .catch((error) => console.error("Error:", error));
-    }
-
-    // Initial calculation
-    updateTotals();
-  });
-</script>

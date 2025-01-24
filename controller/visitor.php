@@ -54,11 +54,13 @@ if (isset($_POST['add_cart'])) {
         $name = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["name"]);
         $role = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["role"]);
         $no_telpon = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["no_telpon"]);
+        $status = valid($conn, $_SESSION["project_portal_wisata_kafe"]["users"]["status"]);
         $_SESSION["project_portal_wisata_kafe"]["users"] = [
           "id" => $id_user,
           "name" => $name,
           "role" => $role,
           "no_telpon" => $no_telpon,
+          "status" => $status,
           "message_$message_type" => $message,
           "time_message" => time()
         ];

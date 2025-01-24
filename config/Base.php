@@ -11,7 +11,7 @@ require_once(__DIR__ . "/../models/sql.php");
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 
-$baseURL = "http://$_SERVER[HTTP_HOST]/apps/tugas/portal_wisata_kafe/";
+$baseURL = "http://$_SERVER[HTTP_HOST]/apps/website/tugas/portal_wisata_kafe/";
 $hostname = $_SERVER['HTTP_HOST'];
 $port = $_SERVER['SERVER_PORT'];
 if (strpos($hostname, 'apps.test') !== false && $port == 8080) {

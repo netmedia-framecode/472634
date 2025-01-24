@@ -155,9 +155,9 @@ if (isset($_POST["delete_galeri"])) {
 }
 
 if ($status == 'superadmin') {
-  $pesanan = "SELECT pesanan.*, menu.nama_menu, menu.harga, tempat_kafe.nama_tempat, tempat_kafe.nama_jalan, tempat_kafe.peta_lokasi, tempat_kafe.kontak FROM pesanan JOIN menu ON pesanan.id_menu = menu.id_menu JOIN tempat_kafe ON menu.id_tempat = tempat_kafe.id_tempat";
+  $pesanan = "SELECT pesanan.*, menu.nama_menu, menu.harga, menu.pajak, tempat_kafe.nama_tempat, tempat_kafe.nama_jalan, tempat_kafe.peta_lokasi, tempat_kafe.kontak FROM pesanan JOIN menu ON pesanan.id_menu = menu.id_menu JOIN tempat_kafe ON menu.id_tempat = tempat_kafe.id_tempat";
 } else if ($status == 'admin') {
-  $pesanan = "SELECT pesanan.*, menu.nama_menu, menu.harga, tempat_kafe.nama_tempat, tempat_kafe.nama_jalan, tempat_kafe.peta_lokasi, tempat_kafe.kontak FROM pesanan JOIN menu ON pesanan.id_menu = menu.id_menu JOIN tempat_kafe ON menu.id_tempat = tempat_kafe.id_tempat WHERE tempat_kafe.id_user = '$id_user'";
+  $pesanan = "SELECT pesanan.*, menu.nama_menu, menu.harga, menu.pajak, tempat_kafe.nama_tempat, tempat_kafe.nama_jalan, tempat_kafe.peta_lokasi, tempat_kafe.kontak FROM pesanan JOIN menu ON pesanan.id_menu = menu.id_menu JOIN tempat_kafe ON menu.id_tempat = tempat_kafe.id_tempat WHERE tempat_kafe.id_user = '$id_user'";
 }
 $view_pesanan = mysqli_query($conn, $pesanan);
 $status_pesanan_array = ["Diterima", "Ditolak"];

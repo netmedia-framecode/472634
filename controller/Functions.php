@@ -104,6 +104,8 @@ function hapusFolderRecursively($folderPath)
 function cart($conn, $data, $action)
 {
   if ($action == "insert") {
+    date_default_timezone_set('Asia/Makassar');
+    $waktu_pesanan = date('Y-m-d H:i:s');
     if (!isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
       $checkUser = mysqli_query($conn, "SELECT * FROM users WHERE username='$data[username]'");
       if (mysqli_num_rows($checkUser) > 0) {
@@ -113,10 +115,11 @@ function cart($conn, $data, $action)
             "id" => $row["id_user"],
             "name" => $row["username"],
             "role" => "user",
-            "no_telpon" => $row["no_telpon"]
+            "no_telpon" => $row["no_telpon"],
+            "status" => $row["status"]
           ];
           $sql = "
-            INSERT INTO pesanan (id_menu,id_tempat,total_harga,jumlah_menu) VALUES ('$data[id_menu]','$data[id_tempat]','$data[total_harga]','$data[jumlah_menu]');
+            INSERT INTO pesanan (id_menu,id_tempat,total_harga,jumlah_menu,waktu_pesanan) VALUES ('$data[id_menu]','$data[id_tempat]','$data[total_harga]','$data[jumlah_menu]','$waktu_pesanan');
             INSERT INTO melakukan (id_user,id_pesanan) VALUES ('$row[id_user]',LAST_INSERT_ID());
           ";
           mysqli_multi_query($conn, $sql);
@@ -134,7 +137,7 @@ function cart($conn, $data, $action)
       }
     } else {
       $sql = "
-        INSERT INTO pesanan (id_menu,id_tempat,total_harga,jumlah_menu) VALUES ('$data[id_menu]','$data[id_tempat]','$data[total_harga]','$data[jumlah_menu]');
+        INSERT INTO pesanan (id_menu,id_tempat,total_harga,jumlah_menu,waktu_pesanan) VALUES ('$data[id_menu]','$data[id_tempat]','$data[total_harga]','$data[jumlah_menu]','$waktu_pesanan');
         INSERT INTO melakukan (id_user,id_pesanan) VALUES ('$data[id_user]',LAST_INSERT_ID());
       ";
       mysqli_multi_query($conn, $sql);
@@ -195,7 +198,7 @@ if (!isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
           "name" => $row["username"],
           "role" => "admin",
           "no_telpon" => 0,
-          "status" => 'superadmin',
+          "status" => 'superadmin'
         ];
         return mysqli_affected_rows($conn);
       } else {
@@ -276,11 +279,11 @@ if (isset($_SESSION["project_portal_wisata_kafe"]["users"])) {
   function menu_kafe($conn, $data, $action)
   {
     if ($action == "insert") {
-      $sql = "INSERT INTO menu (id_tempat,nama_menu,harga) VALUES ('$data[id_tempat]','$data[nama_menu]','$data[harga]')";
+      $sql = "INSERT INTO menu (id_tempat,nama_menu,harga,pajak) VALUES ('$data[id_tempat]','$data[nama_menu]','$data[harga]','$data[pajak]')";
     }
 
     if ($action == "update") {
-      $sql = "UPDATE menu SET nama_menu = '$data[nama_menu]', harga='$data[harga]' WHERE id_menu = '$data[id_menu]'";
+      $sql = "UPDATE menu SET nama_menu = '$data[nama_menu]', harga='$data[harga]', pajak='$data[pajak]' WHERE id_menu = '$data[id_menu]'";
     }
 
     if ($action == "delete") {

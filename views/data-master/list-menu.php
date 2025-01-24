@@ -64,6 +64,7 @@ if (!isset($_GET["p"])) {
                         <th class="text-center">Nama Tempat</th>
                         <th class="text-center">Nama Menu</th>
                         <th class="text-center">Harga</th>
+                        <th class="text-center">Pajak</th>
                         <?php if ($status == "admin") { ?>
                           <th class="text-center">Aksi</th>
                         <?php } ?>
@@ -76,6 +77,7 @@ if (!isset($_GET["p"])) {
                           <td><?= $data['nama_tempat'] ?></td>
                           <td><?= $data['nama_menu'] ?></td>
                           <td>Rp.<?= number_format($data['harga']) ?></td>
+                          <td><?= $data['pajak'] ?>%</td>
                           <?php if ($status == "admin") { ?>
                             <td>
                               <div class="hstack gap-2 justify-content-center">

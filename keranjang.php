@@ -58,6 +58,7 @@ require_once("redirect.php"); ?>
           <div class="totalAmountArea">
             <ul class="list-unstyled">
               <li><strong>Sub Total</strong> <span class="subTotalAmount">Rp.0</span></li>
+              <li><strong>PPN</strong> <span class="ppn"><?= $data['pajak']?>% - Rp.0</span></li>
               <li><strong>Grand Total</strong> <span class="grandTotal">Rp.0</span></li>
             </ul>
           </div>
@@ -74,41 +75,51 @@ require_once("redirect.php"); ?>
 <?php require_once("templates/bottom.php"); ?>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const cartTable = document.querySelector("table");
+  document.addEventListener("DOMContentLoaded", function () {
     const subTotalElement = document.querySelector(".subTotalAmount");
+    const ppnElement = document.querySelector(".ppn");
     const grandTotalElement = document.querySelector(".grandTotal");
+    const cartTable = document.querySelector("table");
 
-    // Function to update totals
+    // Ambil nilai PPN dari elemen ppn (diberikan dari server-side melalui $data['pajak'])
+    const PPN_RATE = parseFloat(ppnElement.textContent.split("%")[0]) || 0;
+
+    // Fungsi untuk menghitung dan memperbarui nilai PPN dan Grand Total
     function updateTotals() {
       let total = 0;
+
+      // Hitung Sub Total
       document.querySelectorAll(".subtotal").forEach((subtotal) => {
         const value = parseFloat(subtotal.textContent.replace(/Rp\.|,/g, "")) || 0;
         total += value;
       });
-      subTotalElement.textContent = `Rp.${total.toLocaleString()}`;
-      grandTotalElement.textContent = `Rp.${total.toLocaleString()}`;
+
+      // Hitung nilai PPN dan Grand Total
+      const ppnAmount = total * (PPN_RATE / 100);
+      const grandTotal = total + ppnAmount;
+
+      // Perbarui elemen dengan nilai yang dihitung
+      subTotalElement.textContent = `Rp.${total.toLocaleString()}`; // Tetap seperti awal
+      ppnElement.textContent = `${PPN_RATE}% - Rp.${ppnAmount.toLocaleString()}`; // Tampilkan PPN
+      grandTotalElement.textContent = `Rp.${grandTotal.toLocaleString()}`; // Tampilkan Grand Total
     }
 
     // Handle quantity changes
-    cartTable.addEventListener("click", function(e) {
+    cartTable.addEventListener("click", function (e) {
       if (e.target.closest(".btn-minus") || e.target.closest(".btn-plus")) {
         e.preventDefault();
 
         const button = e.target.closest("a");
         const inputField = button.parentElement.querySelector(".jumlah");
-        let currentValue = parseInt(inputField.value);
+        const id_pesanan = button.dataset.id;
+        let currentValue = parseInt(inputField.value, 10);
         const isPlus = button.classList.contains("btn-plus");
 
-        if (isPlus) {
-          currentValue += 1;
-        } else {
-          currentValue = Math.max(1, currentValue - 1); // Minimum quantity is 1
-        }
-
+        // Perbarui jumlah
+        currentValue = isPlus ? currentValue + 1 : Math.max(1, currentValue - 1);
         inputField.value = currentValue;
 
-        // Update the subtotal for this row
+        // Perbarui subtotal untuk baris ini
         const row = button.closest("tr");
         const price = parseFloat(row.querySelector("[data-column='Price']").textContent.replace(/Rp\.|,/g, ""));
         const subtotalField = row.querySelector(".subtotal");
@@ -117,18 +128,18 @@ require_once("redirect.php"); ?>
 
         updateTotals();
 
-        // Optional: Send AJAX request to update the server
-        updateCartQuantity(button.dataset.id, currentValue);
+        // Kirim data ke server untuk update keranjang
+        updateCartQuantity(id_pesanan, currentValue);
       }
     });
 
-    cartTable.addEventListener("change", function(e) {
+    cartTable.addEventListener("change", function (e) {
       if (e.target.classList.contains("jumlah")) {
         const inputField = e.target;
-        const currentValue = parseInt(inputField.value) || 1; // Default to 1 if invalid
+        const currentValue = parseInt(inputField.value, 10) || 1; // Default ke 1 jika invalid
         inputField.value = currentValue;
 
-        // Update the subtotal for this row
+        // Perbarui subtotal untuk baris ini
         const row = inputField.closest("tr");
         const price = parseFloat(row.querySelector("[data-column='Price']").textContent.replace(/Rp\.|,/g, ""));
         const subtotalField = row.querySelector(".subtotal");
@@ -137,35 +148,36 @@ require_once("redirect.php"); ?>
 
         updateTotals();
 
-        // Optional: Send AJAX request to update the server
+        // Kirim data ke server untuk update keranjang
         updateCartQuantity(inputField.dataset.id, currentValue);
       }
     });
 
-    // Function to send updated cart data to the server
+    // Fungsi untuk mengirim pembaruan jumlah pesanan ke server
     function updateCartQuantity(id, quantity) {
       fetch("update_keranjang.php", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            id_pesanan: id,
-            jumlah_menu: quantity
-          }),
-        })
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id_pesanan: id,
+          jumlah_menu: quantity,
+        }),
+      })
         .then((response) => response.json())
         .then((data) => {
           if (data.success) {
-            console.log("Cart updated successfully!");
+            console.log("Keranjang berhasil diperbarui!");
           } else {
-            console.error("Failed to update cart.");
+            console.error("Gagal memperbarui keranjang.");
           }
         })
-        .catch((error) => console.error("Error:", error));
+        .catch((error) => console.error("Terjadi kesalahan:", error));
     }
 
-    // Initial calculation
+    // Lakukan perhitungan awal setelah halaman dimuat
     updateTotals();
   });
 </script>
+

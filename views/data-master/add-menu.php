@@ -52,6 +52,10 @@ require_once("../../templates/views_top.php"); ?>
                 <label for="harga" class="form-label">Harga</label>
                 <input type="number" name="harga" class="form-control" id="harga" placeholder="Harga" required>
               </div>
+              <div class="mb-3">
+                <label for="pajak" class="form-label">Pajak</label>
+                <input type="number" name="pajak" class="form-control" id="pajak" placeholder="Pajak" min="1" max="15" required>
+              </div>
               <div class="mb-3 hstack gap-2 justify-content-left">
                 <a href="menu" class="btn btn-success">Kembali</a>
                 <button type="submit" name="add_menu" class="btn btn-primary">Tambah</button>
